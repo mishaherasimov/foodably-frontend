@@ -20,7 +20,7 @@ The web site for creating and searching food recipes. Foodably also offers blog 
 <!--- Provide a list of the frameworks used to build this application, your list should include the name of the framework used, the url where the framework is available for download and what the framework was used for, see the example below --->
 
 * [Angular](https://angular.io/start) - The frontend web framework used
-* [Bootstrap](https://getbootstrap.com/) - Th open source toolkit for developing responsive web pages with HTML, CSS, and JS
+* [Bootstrap](https://getbootstrap.com/) - The open source toolkit for developing responsive web pages with HTML, CSS, and JS
 
 ## Deployment
 

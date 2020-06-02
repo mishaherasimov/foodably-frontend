@@ -10,7 +10,6 @@ import { Component, Input, OnInit } from '@angular/core';
 export class RecipePageSectionComponent implements OnInit {
   @Input()
   recipePageSection: {
-    
     recipes: RecipeItem[]
   };
   constructor() { }

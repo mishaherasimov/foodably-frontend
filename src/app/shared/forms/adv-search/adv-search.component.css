@@ -1,112 +1,116 @@
 .backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 200;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-
 /* main form */
-
 .adv-search__form {
-    background: white;
-    width: 55vw;
-    min-width: 45rem;
-    height: 70vh;
-    min-height: 42rem;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  background: white;
+  width: 55vw;
+  min-width: 45rem;
+  height: 70vh;
+  min-height: 42rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .adv-search__logo {
-    position: absolute;
-    top: 2.625rem;
-    left: 3rem;
-    z-index: -10;
+  position: absolute;
+  top: 2.625rem;
+  left: 3rem;
+  z-index: -10;
 }
 
 .adv-search__illustration {
-    position: absolute;
-    bottom: 2.625rem;
-    left: 2.375rem;
-    /* width: 5rem; */
-    z-index: -10;
+  position: absolute;
+  bottom: 2.625rem;
+  left: 2.375rem;
+  /* width: 5rem; */
+  z-index: -10;
 }
 
 .adv-search__categories {
-    position: absolute;
-    top: 6rem;
-    left: 3rem;
+  position: absolute;
+  top: 6rem;
+  left: 3rem;
 }
 
 .adv-search__contents {
-    list-style-type: none;
-    position: absolute;
-    top: 6rem;
-    left: 20rem;
+  list-style-type: none;
+  position: absolute;
+  top: 6rem;
+  left: 20rem;
 }
 
 .adv-search__sub-categories {
-    position: absolute;
-    top: 6rem;
-    left: 10rem;
+  position: absolute;
+  top: 6rem;
+  left: 10rem;
 }
 
 .food-type-sub {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #212121;
-    margin: 0;
-    padding: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #212121;
+  margin: 0;
+  padding: 1rem;
 }
 
 .food-type {
-    position: relative;
-    z-index: 1;
-    border: hidden;
-    background-color: white;
-    min-width: 10rem;
-    box-shadow: 0px 8px 16px 0px rgba(194, 149, 68, 0.25);
-    text-align: left;
-    font-family: "Montserrat", sans-serif;
-    padding: 1rem;
-    list-style-type: none;
+  position: relative;
+  z-index: 1;
+  border: hidden;
+  background-color: white;
+  min-width: 10rem;
+  box-shadow: 0px 8px 16px 0px rgba(194, 149, 68, 0.25);
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+  padding: 1rem;
+  list-style-type: none;
+  cursor: pointer;
 }
 
 .food-type:hover {
-    color: black;
-    background-color: rgba(194, 149, 68, 0.25);
+  color: black;
+  background-color: rgba(194, 149, 68, 0.25);
 }
 
 .close-button {
-    background: url("/assets/img/close.svg") center/cover repeat border-box;
-    height: 2rem;
-    width: 2rem;
-    position: absolute;
-    top: 2.625rem;
-    right: 3rem;
-    cursor: pointer;
+  background: url("../../../../assets/img/close.svg") center/cover repeat border-box;
+  height: 2rem;
+  width: 2rem;
+  position: absolute;
+  top: 2.625rem;
+  right: 3rem;
+  cursor: pointer;
 }
 
 #clear-filter {
-    position: absolute;
-    bottom: 2.625rem;
-    right: 2.375rem;
-    z-index: -10;
+  position: absolute;
+  bottom: 2.625rem;
+  right: 2.375rem;
+  z-index: -10;
+  cursor: pointer;
 }
 
 #button-filter {
-    position: absolute;
-    bottom: 2.625rem;
-    left: 50%;
-    z-index: -10;
+  position: absolute;
+  bottom: 2.625rem;
+  left: 50%;
+  z-index: -10;
+  cursor: pointer;
 }
 
+.header-3 {
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=adv-search.component.css.map */

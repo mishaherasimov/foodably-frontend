@@ -38,6 +38,13 @@
   margin: 0;
 }
 
+.header-5 {
+  font-size: 1.1875rem;
+  font-weight: 400;
+  color: map-get($colors, gray);
+  margin: 0;
+}
+
 .header-4 a {
   text-decoration: none;
   color: map-get($colors, dark);
@@ -81,4 +88,10 @@
   font-size: 1rem;
   font-weight: 500;
   color: #4C3F54;
+}
+
+.annotation {
+  @extend .text-normal;
+  color: map-get($colors, gray);
+  margin: 0;
 }

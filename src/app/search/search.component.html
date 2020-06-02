@@ -1,41 +1,62 @@
+<!--
+Author: Ujwal Vikas Chanda, uj225642@dal.ca
+-->
 <section id="search">
     <div>
+        <!--Search Bar-->
         <div id="search-field">
-            <a routerLink="/search">
-                <img src="assets/img/loop.svg" alt="Loop icon">
+            <a (click)="onSearch()">
+                <img src="assets/img/loop.svg" alt="Loop icon" style="cursor: pointer;">
             </a>
-            <input type="text" name="recipe" placeholder="What do you want to try today?">
+            <input [(ngModel)]="searchKey" type="text" name="recipe" placeholder="What do you want to try today?">
         </div>
         <div>
-            <button id="advanced-search" class="backquote" (click)="onSearch()">Advanced search</button>
+            <button id="advanced-search" class="backquote" (click)="onAdvSearch()">Advanced search</button>
         </div>
     </div>
 </section>
 
 <section>
     <section id="recipes-and-articles">
+        <!--Display number of records after search-->
         <div>
-            Showing 12 of 40 results
+            Showing {{noOfItems}} results
             <span style="float: right;">
-                Sort By: 
+                <!--Sort Menu-->
                 <span class="sort" style="color: #4C4054;">
-                    <a routerLink="/search" class="backquote">Rating</a>
+                    <a class="backquote">
+                      <img id="sortMenu" src="../../assets/img/stock-img/menu-2.png">
+                    </a>
                     <div class="dropdown-sort" >
-                        <a routerLink="/search" class="main-sort">Rating</a>
-                        <a routerLink="/search" class="main-sort">Likes</a>
-                        <a routerLink="/search" class="main-sort">Relavance</a>
-                        <a routerLink="/search" class="main-sort">Preparation Time</a>
-                        <a routerLink="/search" class="main-sort">Release Date</a>
+                        <a value="rating" (click)="onSort(sortRating)" class="main-sort">Rating</a>
+                        <a value="likes" (click)="onSort(sortLikes)" class="main-sort">Likes</a>
+                        <a value= "time" (click)="onSort(sortTime)" class="main-sort">Preparation Time</a>
+                        <a value="date" (click)="onSort(sortDate)" class="main-sort">Release Date</a>
                     </div>
             </span>
             </span>
         </div>
-        <app-recipe-section *ngFor="let recipeSection of recipeSections" [recipeSection]="recipeSection">
-        </app-recipe-section>
-        <app-recipe-section *ngFor="let recipeSection of recipeSections" [recipeSection]="recipeSection">
-        </app-recipe-section>
-        <div class="button red-back">
-            <h4 class="button-title">More</h4>
+    <!--Display list of searched record-->
+        <div *ngFor="let recipeSection of recipeSections">
+            <div class="section">
+                <ul class="recipe__cards">
+                    <div *ngFor="let recipe of recipeSection.recipes">
+                        <li class="recipe__card">
+                            <a>
+                                <img (click)="onClickRecipe(recipe.id)" [src]='recipe.imagePath' class="recipe__image">
+                                <h6 (click)="onClickRecipe(recipe.id)" class="caption">{{ recipe.duration }}</h6>
+                                <h4 (click)="onClickRecipe(recipe.id)" class="header-4">{{ recipe.name }}</h4>
+                                <div class="divider-tiled__small"></div>
+                                <h6 class="recipe__card--author paragraph">
+                                    Made by <span (click)="onClickAuthor(recipe.authorID)" class="backquote__small">{{ recipe.author }}</span>
+                                </h6>
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
         </div>
+
+
     </section>
 </section>

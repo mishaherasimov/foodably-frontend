@@ -1,0 +1,127 @@
+<div class="content-container">
+  <form class="form__section" [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <h1 class="header-1">Create recipe</h1>
+    <section id="form__section--top">
+      <div id="title--container" class="text-field--regular">
+        <label class="header-4" for="title">Title</label>
+        <input id="title"
+               type="text"
+               formControlName="title"
+               placeholder="Recipe title"
+               name="recipe_title">
+      </div>
+      <div id="category--container" class="dropdown--regular">
+        <label class="header-4" for="dishCategory">Category</label>
+        <ng-select id="dishCategory"
+                   [options]="categories"
+                   [styleGuide]="styleGuide"
+                   formControlName="category"></ng-select>
+      </div>
+      <div id="video--container" class="text-field--regular">
+        <label class="header-4" for="videoURL">Video presentation</label>
+        <input id="videoURL"
+               type="text"
+               formControlName="videoURL"
+               placeholder="Youtube link to the recipe video"
+               name="video_presentation">
+      </div>
+      <div id="image--container" class="text-field--regular">
+        <label class="header-4" for="previewURL">Preview image</label>
+        <input id="previewURL"
+               type="text"
+               formControlName="previewURL"
+               placeholder="Link to the recipe preview image"
+               name="preview_image">
+      </div>
+      <div id="description--container" class="text-field--regular">
+        <label class="header-4" for="description">Description</label>
+        <textarea rows="12"
+                  id="description"
+                  name="description"
+                  formControlName="description"
+                  placeholder="Describe your recipe. Let people know how you found or created it. Share tips and your overall experience."></textarea>
+      </div>
+      <div id="cuisine--container" class="dropdown--regular">
+        <label class="header-4" for="cuisine">Cuisine</label>
+        <ng-select id="cuisine"
+                   [options]="cuisines"
+                   [styleGuide]="styleGuide"
+                   formControlName="cuisine"></ng-select>
+      </div>
+      <div id="type--container" class="dropdown--regular">
+        <label class="header-4" for="dish-type">Dish type</label>
+        <ng-select id="dish-type"
+                   [options]="dishTypes"
+                   [styleGuide]="styleGuide"
+                   formControlName="type"></ng-select>
+      </div>
+      <div id="time--container" class="stepper--regular">
+        <label class="header-4" for="preparation-time">How mach time does it take to prepare it?</label>
+        <app-stepper [step]="5"
+                     formControlName="preparationTime"
+                     [annotation]="'.min'"
+                     id="preparation-time"></app-stepper>
+      </div>
+      <div id="veg--container" class="checkbox--regular">
+        <label for="veg">
+          <input id="veg"
+                 formControlName="isVeg"
+                 type="checkbox"/>
+          <span class="check-mark"></span>
+        </label>
+        <h4 class="checkbox--annotation header-4">Is this recipe vegetarian?</h4>
+      </div>
+    </section>
+    <div class="divider recipe--divider"></div>
+    <section id="form__section--ingredients">
+      <div class="form__section--title">
+        <h2 class="header-2">Ingredients for one serving</h2>
+        <app-button (click)="addIngredient()"
+                    icon="assets/img/plus_filled.svg"
+                    height="3.125"
+                    width="11.875"
+                    background="#486824"
+                    iconHeight="19"
+                    title="New ingredient"></app-button>
+      </div>
+      <app-create-edit-ingredient *ngFor="let ingredient of ingredients?.controls; let i = index; let isLast = last"
+                                  [index]="i"
+                                  [ingredientForm]="ingredient"
+                                  (deleteIngredient)="deleteIngredient($event)"
+                                  [isLast]="isLast"></app-create-edit-ingredient>
+    </section>
+    <div class="divider recipe--divider"></div>
+    <section id="form__section--instruction">
+      <div class="form__section--title">
+        <h2 class="header-2">Preparation steps</h2>
+        <app-button (click)="addInstructionStep()"
+                    icon="assets/img/plus_filled.svg"
+                    height="3.125"
+                    width="11.875"
+                    background="#486824"
+                    iconHeight="19"
+                    title="New step"></app-button>
+      </div>
+      <app-create-edit-prep-step *ngFor="let step of instruction?.controls; let i = index; let isLastStep = last"
+                                  [index]="i"
+                                  [stepForm]="step"
+                                  (deleteStep)="deleteInstructionStep($event)"
+                                  [total]="instruction.length"
+                                  [isLast]="isLastStep"></app-create-edit-prep-step>
+
+    </section>
+    <div class="divider"></div>
+    <section id="form__section--submit">
+      <app-button height="3.125"
+                  width="10.25"
+                  background="#9E9E9E"
+                  title="Cancel"></app-button>
+      <button type="submit">
+        <app-button height="3.125"
+                    width="10.25"
+                    background="#882426"
+                    title="Submit"></app-button>
+      </button>
+    </section>
+  </form>
+</div>

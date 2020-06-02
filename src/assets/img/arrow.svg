@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="16px" viewBox="0 0 15 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>arrow</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Logo-&amp;-Theme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Illustration" transform="translate(-802.000000, -904.000000)" fill="#882426">
+            <g id="arrow" transform="translate(802.000000, 904.000000)">
+                <path d="M8.52859127,3.05718254 L14.1678522,14.3357044 C14.4518898,14.9037796 14.2216318,15.5945536 13.6535565,15.8785913 C13.4938728,15.9584331 13.3177928,16 13.1392609,16 L1.86073909,16 C1.22561162,16 0.710739087,15.4851275 0.710739087,14.85 C0.710739087,14.6714681 0.752305943,14.4953881 0.832147817,14.3357044 L6.47140873,3.05718254 C6.75544637,2.48910727 7.44622036,2.25884927 8.01429563,2.5428869 C8.23685215,2.65416516 8.41731301,2.83462603 8.52859127,3.05718254 Z" id="Triangle" transform="translate(7.500000, 8.500000) rotate(-180.000000) translate(-7.500000, -8.500000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

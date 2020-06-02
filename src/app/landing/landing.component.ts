@@ -1,9 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RecipeItem } from '../shared/models/recipe-item.model';
-import {BlogItem} from "../shared/models/blog-item.model";
-import { AdvSearchComponent } from '../shared/forms/adv-search/adv-search.component';
-import {MatDialog} from '@angular/material/dialog';
-
+import { BlogItem } from "../shared/models/blog-item.model";
+import { SearchService } from '../shared/services/search/search.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -55,21 +54,27 @@ export class LandingComponent implements OnInit {
     ]
   };
 
-  constructor(public dialog: MatDialog) { }
+  searchKey=""
+search: SearchService
+router:any
+  //constructor( private dialog: MatDialog) {
+    constructor(private _search:SearchService, private _router:Router) {
+this.search = _search
+this.router=_router
+  }
+
 
   ngOnInit() {
   }
 
   onSearch(){
-    const dialogRef = this.dialog.open(AdvSearchComponent, {
-      width: '250px',
-      height: '250px',
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      
-    });
+    this.search.putSearchKey(this.searchKey)
+    if(!this.searchKey){
+      alert("Please Search Something")
+    }else{
+      this.router.navigateByUrl('/search');
+    }
+
   }
-
 }

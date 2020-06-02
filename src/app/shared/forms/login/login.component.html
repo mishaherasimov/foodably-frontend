@@ -5,20 +5,53 @@
         <div class="profile-management__form--container">
             <h2 class="header-2">Log in to your account</h2>
             <div class="profile-management__form--content">
-                <button id="button-google" type="button">
+                <!--<button id="button-google" type="button">
           <img id="button-google--logo" src="assets/img/google_logo.svg" alt="Google logo">
-          <h4 id="button-google--text">Sign in with Google</h4>
+          <h4 id="button-google--text">Sign in with Google</h4> 
         </button>
-                <p class="paragraph">or use your email</p>
-                <form class="profile-management__form--fields" (ngSubmit)="onSubmit()" #loginForm="ngForm">
-                    <input id="email" type="email" placeholder="Email" name="email" ngModel required email>
-                    <input id="password" type="password" placeholder="Password" name="password" required ngModel minlength="8">
-                    <input class="button button-title red-back" [disabled]="!loginForm.valid" type="submit" value="Submit">
+                <p class="paragraph">or use your email</p>-->
+                <form class="profile-management__form--fields" (ngSubmit)="onSubmit()" [formGroup]="signinForm">
+                    <input class="form-control" formControlName="email" type="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+
+                    <div *ngIf="(signinForm.get('email').invalid && onInit) || 
+                                (signinForm.get('email').invalid && (signinForm.get('email').dirty ||
+                                signinForm.get('email').touched))" class="alert alert-danger">
+                        <div *ngIf="signinForm.get('email').errors.required">
+                            Please provide Email address
+                        </div>
+                        <div *ngIf="signinForm.get('email').errors.pattern">
+                            Please provide correct Email address
+                        </div>
+                        <div *ngIf="signinForm.get('email').hasError('Register')">
+                            Email doesn't exist, Please sign up to continue
+                        </div>
+                    </div>
+                    <input type="password" name="password" id="password" placeholder="Password" class="form-control" formControlName="password">
+                    <div *ngIf="(signinForm.get('password').invalid && onInit) || 
+                            (signinForm.get('password').invalid && (signinForm.get('password').dirty ||
+                            signinForm.get('password').touched))" class="alert alert-danger">
+
+                        <div *ngIf="signinForm.get('password').errors.required">
+                            Password can't be empty
+                        </div>
+                        <div *ngIf="signinForm.get('password').errors.maxlength">
+                            Password can be maximum of 20 characters.
+                        </div>
+                        <div *ngIf="signinForm.get('password').errors.minlength">
+                            Password must be at least 6 characters long.
+                        </div>
+
+                    </div>
+                    <!-- <div *ngIf='inValidAuth'>
+                        Invalid Username or password
+                    </div> -->
+
+                    <input class="button button-title red-back" type="submit" value="Submit">
                 </form>
             </div>
             <div class="divider"></div>
-            <h4 id="profile-management__form--caption" class="header-4">Don't have an account?</h4>
-            <a id="profile-management__form--caption-link" class="backquote__small" href="#">Sign up, it's free</a>
+            <h4 id="profile-management__form--caption" class="header-4">Forgot Password?</h4>
+            <a id="profile-management__form--caption-link" class="backquote__small" [routerLink]="['/request-reset-password']">Click here to reset password</a>
         </div>
         <img class="profile-management__illustration" src="assets/img/undraw_enter_uhqk.svg" alt="Form illustration logo">
     </div>

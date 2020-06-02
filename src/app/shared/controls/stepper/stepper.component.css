@@ -1,0 +1,15 @@
+.stepper__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 2.75rem;
+}
+.stepper__container > .header-4 {
+  width: 3.375rem;
+  text-align: center;
+}
+.stepper__container > .caption {
+  margin: 0 0 0 1rem;
+}
+
+/*# sourceMappingURL=stepper.component.css.map */

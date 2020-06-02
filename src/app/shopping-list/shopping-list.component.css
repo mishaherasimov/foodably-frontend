@@ -16,5 +16,8 @@
 .table-class, tr, td {
   text-align: left;
 }
+agm-map{
+height: 300px;
+}
 
 /*# sourceMappingURL=shopping-list.component.css.map */

@@ -1,24 +1,46 @@
 <div class="profile__container">
-  <section>
-      <div class="profile" >
-        <div class="profile--template">
-          <div appRandomBackground class="profile--background">
-            <h3 class="profile-placeholder author-placeholder">R</h3>
-          </div>
+    <section>
+        <div class="profile">
+            <div class="profile--template">
+                <div appRandomBackground class="profile--background">
+                    <h3 class="profile-placeholder author-placeholder">{{firstLetter}}</h3>
+                </div>
+            </div>
+            <div class="profile--info">
+                <h1 class="header-1">{{name}}</h1>
+
+                <div class="form-group">
+                    <div *ngIf="!isEditClicked">
+                        <p class="paragraph">{{bio}}</p>
+                    </div>
+                    <div *ngIf="isEditClicked">
+                        <textarea #editBio class="paragraph" [(ngModel)]="updBio" class="form-control" type="text"></textarea>
+                    </div>
+                    <div *ngIf="!isEditClicked">
+                        <input class="button button-title red-back" type="submit" (click)="onEdit()" value="Add/Edit Bio">
+                    </div>
+
+                    <div *ngIf="isEditClicked">
+                        <input class="button button-title red-back" (click)="update()" value="Update">
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="delete" style="padding-left: 150px;
+            padding-top: 80px;">
+                <input class="button button-title red-back" (click)="delete()" value="Delete Profile">
+            </div>
         </div>
-        <div class="profile--info">
-          <h1 class="header-1">Random Name</h1>
-          <p class="paragraph">Biker, risk-taker, drummer, reclaimed wood collector and recent OCAD grad. Making at the sweet spot between art and computer science to create not just a logo, but a feeling. I prefer clear logic to decoration</p>
+    </section>
+
+    <section>
+        <div class="profile__tabs">
+            <button class="profile__tab button-title" routerLink="myrecipes" routerLinkActive="active">My recipes</button>
+            <button class="profile__tab button-title">My blog posts</button>
+            <button class="profile__tab button-title" routerLink="shoppinglist" routerLinkActive="active"> <i class="fas fa-clipboard-list"></i>Shopping List</button>
         </div>
-      </div>
-  </section>
-  <section>
-      <div class="profile__tabs">
-        <button class="profile__tab button-title">Create recipe</button>
-        <button class="profile__tab button-title">Post Blog</button>
-        <button class="profile__tab button-title" routerLink="shoppinglist" routerLinkActive="active"> <i class="fas fa-clipboard-list"></i>Shopping List</button>
-      </div>
-      <div class="divider"></div>
-      <router-outlet></router-outlet>
-  </section>
+        <div class="divider"></div>
+        <router-outlet></router-outlet>
+    </section>
 </div>

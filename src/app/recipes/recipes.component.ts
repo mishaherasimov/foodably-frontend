@@ -1,6 +1,8 @@
 import { RecipeItem } from './../shared/models/recipe-item.model';
 
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {RecipeService} from '../shared/services/recipe.service';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -8,40 +10,42 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.scss']
 })
-export class RecipesComponent implements OnInit {
+export class RecipesComponent implements OnInit, OnDestroy {
+
   @Input()
-  recipePageSections = [{
-      recipes: [
-        new RecipeItem('assets/img/stock-img/eiliv-sonas-aceron-FoHTUTU8SzE-unsplash.jpg', '40 min', 'Petit beurre dessert',  'Made by Seth Carson'),
-        new RecipeItem('assets/img/stock-img/baiq-daling-ykThMylLsbY-unsplash.jpg', '30 min', 'Eggs en Cocotte', 'Made by Alice Norris'),
-        new RecipeItem('assets/img/stock-img/aigars-peda-HEG9RhlLKTY-unsplash.jpg', '15 min', 'Salmon rice soup with ginger and garlic', 'Made by Eunice Bush'),
-        new RecipeItem('assets/img/stock-img/martin-widenka-tkfRSPt-jdk-unsplash.jpg', '20 min', 'Petit beurre dessert', 'Made by Randall Fisher')
-      ]
-    },
-    {
-      recipes: [
-        new RecipeItem('assets/img/stock-img/eiliv-sonas-aceron-FoHTUTU8SzE-unsplash.jpg', '40 min', 'Petit beurre dessert',  'Made by Seth Carson'),
-        new RecipeItem('assets/img/stock-img/baiq-daling-ykThMylLsbY-unsplash.jpg', '30 min', 'Eggs en Cocotte', 'Made by Alice Norris'),
-        new RecipeItem('assets/img/stock-img/aigars-peda-HEG9RhlLKTY-unsplash.jpg', '15 min', 'Salmon rice soup with ginger and garlic', 'Made by Eunice Bush'),
-        new RecipeItem('assets/img/stock-img/martin-widenka-tkfRSPt-jdk-unsplash.jpg', '20 min', 'Petit beurre dessert', 'Made by Randall Fisher')
-      ]
+  recipePageSections = [];
+  error = null;
+  recipeSub: Subscription;
 
-    },
-    {
-      recipes: [
-        new RecipeItem('assets/img/stock-img/eiliv-sonas-aceron-FoHTUTU8SzE-unsplash.jpg', '40 min', 'Petit beurre dessert',  'Made by Seth Carson'),
-        new RecipeItem('assets/img/stock-img/baiq-daling-ykThMylLsbY-unsplash.jpg', '30 min', 'Eggs en Cocotte', 'Made by Alice Norris'),
-        new RecipeItem('assets/img/stock-img/aigars-peda-HEG9RhlLKTY-unsplash.jpg', '15 min', 'Salmon rice soup with ginger and garlic', 'Made by Eunice Bush'),
-        new RecipeItem('assets/img/stock-img/martin-widenka-tkfRSPt-jdk-unsplash.jpg', '20 min', 'Petit beurre dessert', 'Made by Randall Fisher')
-      ]
-
-    },
-
-  ];
-
-  constructor() { }
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
+    this.onFetchRecipes();
   }
 
+  ngOnDestroy() {
+    this.recipeSub.unsubscribe();
+  }
+
+  // inspired by https://stackoverflow.com/questions/8495687/split-array-into-chunks
+  onFetchRecipes() {
+    // Send Http request
+    this.recipeSub = this.recipeService.fetchRecipes().subscribe(
+      recipes => {
+
+        let i;
+        let j;
+        const chunk = 4;
+        console.log(recipes.length);
+        for (i = 0, j = recipes.length; i < j; i += chunk) {
+          const section = recipes.slice(i, i + chunk);
+          const sectionItems = section.map(recipe => new RecipeItem(recipe.previewURL, `${recipe.preparationTime} min.`, recipe.title, recipe.author.name, recipe.id));
+          this.recipePageSections.push({ recipes: sectionItems });
+        }
+      },
+      error => {
+        this.error = error.message;
+      }
+    );
+  }
 }

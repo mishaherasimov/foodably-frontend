@@ -1,5 +1,15 @@
+import { EmailValidatorDirective } from './../../email-validator.directive';
+
+
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { FormBuilder, FormGroup,Validators } from "@angular/forms";
+import { AuthService } from './../../auth.service';
+import { Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
+
+
 
 @Component({
   selector: 'app-login',
@@ -7,25 +17,52 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['../profile-management.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  @ViewChild('loginForm') loginForm: NgForm;
+  onInit;
+   signinForm: FormGroup;;
+   inValidAuth:boolean;
 
   @Output()
   close = new EventEmitter<void>();
   @Output()
-  login = new EventEmitter<void>();
+  signin = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(
+    public fb: FormBuilder,
+    public authService: AuthService,
+    public router: Router,
+    public emailValidator:EmailValidatorDirective,
+    
+    
+   
+    
+  ) { 
+    this.signinForm = this.fb.group({
+      email:['', Validators.compose ([Validators.required, Validators.email]),this.emailValidator.validateEmailIdForLogin.bind(this.emailValidator)],
+      password:['',[Validators.required, Validators.minLength(6), Validators.maxLength(20)]]
+    })
+  }
 
   ngOnInit() {
+    this.onInit = false;
   }
 
   onClose() {
+    this.router.navigate(['']);
     this.close.emit();
   }
 
   onSubmit() {
-    console.log(this.loginForm);
-    this.login.emit();
+    if (this.signinForm.invalid) {
+      this.onInit = true;
+
+    }
+    else{
+    
+    this.authService.signIn(this.signinForm.value);
+    this.onClose();
+    this.router.navigate(['']);
+    this.signin.emit();  
+  
   }
+}
 }

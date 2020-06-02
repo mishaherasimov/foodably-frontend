@@ -1,0 +1,22 @@
+/* annotation template */
+
+.annotation--template {
+  display: inline-flex;
+  align-items: center;
+  border-right: 1px solid #9E9E9E;
+  padding-right: 1rem;
+  margin-right: 1rem;
+
+  > .header-5 {
+    margin-left: 0.5rem;
+  }
+}
+
+.leading-block {
+  height: 0.5rem;
+  width: 0.5rem;
+}
+
+.no-border {
+  border: none;
+}

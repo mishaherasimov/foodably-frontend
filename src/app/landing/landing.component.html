@@ -1,7 +1,7 @@
 <section id="welcome-banner">
     <div id="label-container">
         <div id="label-light">
-            <h1 class="header-1">Who told you can't cook?</h1>
+            <h1 class="header-1">Give homemade a try!</h1>
         </div>
         <div id="label-dark"></div>
     </div>
@@ -9,14 +9,12 @@
 <section id="search">
     <div>
         <div id="search-field">
-            <a routerLink="/search">
+            <a (click)="onSearch()" style="cursor: pointer">
                 <img src="assets/img/loop.svg" alt="Loop icon">
             </a>
-            <input type="text" name="recipe" placeholder="What do you want to try today?">
+            <input [(ngModel)]="searchKey" type="text" name="recipe" placeholder="What do you want to try today?">
         </div>
-        <div>
-            <button id="advanced-search" class="backquote" (click)="onSearch()">Advanced search</button>
-        </div>
+
     </div>
     <div class="divider"></div>
 </section>

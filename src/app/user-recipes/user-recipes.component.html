@@ -1,0 +1,16 @@
+<ul class="user-recipes__section">
+  <li class="new-user-recipe__card">
+    <a class="new-user-recipe__content" routerLink="/newrecipe">
+      <img src="assets/img/plus_filled.svg" alt="new item icon">
+      <h4 class="button-title">New recipe</h4>
+    </a>
+  </li>
+  <app-user-recipe-item *ngFor="let recipe of recipes" [recipeItem]="recipe"
+                        (recipeDeleted)="onRecipeDeleted($event)"></app-user-recipe-item>
+</ul>
+<div class="divider"></div>
+<div class="user-recipes__more">
+  <div class="button red-back">
+    <h4 class="button-title">More</h4>
+  </div>
+</div>

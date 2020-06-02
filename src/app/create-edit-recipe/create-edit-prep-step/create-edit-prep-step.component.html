@@ -1,0 +1,40 @@
+<form class="prep-step--container" [formGroup]="stepForm">
+  <app-button-square (click)="onDeleteStep()"
+                     id="delete-step__button"
+                     color="#F2BF58"
+                     size="5"
+                     iconHeight="43"
+                     icon="assets/img/trash_can.svg"></app-button-square>
+  <div id="step-order--container">
+    <h3 class="header-3">{{ index + 1 }}/</h3>
+    <h2 class="header-2">{{ total }}</h2>
+  </div>
+
+  <div id="description--container" class="text-field--regular">
+    <label class="header-4" for="description">Description</label>
+    <textarea rows="13"
+              id="description"
+              name="description"
+              placeholder="Describe preparation step in details."
+              formControlName="description"></textarea>
+  </div>
+  <div class="divider--vertical"></div>
+  <div id="step-ingredients--container">
+    <label class="header-4" for="ingredients">Ingredients</label>
+    <div id="ingredients" class="ingredients--container">
+
+      <app-create-edit-step-ingredient *ngFor="let ingredient of ingredients?.controls; let i = index"
+                                 [index]="i"
+                                 [ingredientForm]="ingredient"
+                                 (deleteIngredient)="deleteIngredient($event)">
+      </app-create-edit-step-ingredient>
+      <app-button (click)="addIngredient()"
+                  icon="assets/img/plus_filled.svg"
+                  height="2.75"
+                  background="#4C3F54"
+                  iconHeight="19"
+                  title="Add ingredient"></app-button>
+    </div>
+  </div>
+</form>
+<div *ngIf="!isLast" class="divider step--divider"></div>

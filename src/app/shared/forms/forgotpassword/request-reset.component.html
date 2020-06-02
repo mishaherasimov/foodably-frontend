@@ -1,0 +1,45 @@
+<div class="backdrop">
+    <div class="profile-management__form">
+        <img class="profile-management__logo" src="assets/img/logo_small.svg" alt="Foodably logo">
+        <div class="close-button" (click)="onClose()"></div>
+        <div class="profile-management__form--container">
+            <h2 class="header-2">Forgot Password</h2>
+            <div class="profile-management__form--content">
+                <div id="errorMsg" *ngIf="errorMessage">
+                    <span>{{errorMessage}}</span>
+                </div>
+                <div id="successMsg" *ngIf="successMessage">
+                    <span>{{successMessage}}</span>
+                </div>
+
+                <form class="profile-management__form--fields" [formGroup]="RequestResetForm" (ngSubmit)="RequestResetUser(RequestResetForm)">
+
+                    <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="email" type="text" id="email" formControlName="email" />
+                    <!-- <span *ngIf="!RequestResetForm.get('email').valid && !IsvalidForm" class="help-block">Please enter a valid email!</span> -->
+                    <div *ngIf="!RequestResetForm.get('email').valid && !IsvalidForm && (RequestResetForm.get('email').invalid && onInit) || 
+                    (RequestResetForm.get('email').invalid && (RequestResetForm.get('email').dirty ||
+                    RequestResetForm.get('email').touched))" class="help-block" class="alert alert-danger">
+                        <div *ngIf="RequestResetForm.get('email').errors.required">
+                            Please provide Email address
+                        </div>
+                        <div *ngIf="RequestResetForm.get('email').errors.pattern">
+                            Please provide correct Email address
+                        </div>
+                        <div *ngIf="RequestResetForm.get('email').hasError('Register')">
+                            Email doesn't exist in our records, Please input correct email to reset password
+                        </div>
+                    </div>
+
+
+
+                    <input class="button button-title red-back" type="submit" value="Reset Password">
+
+                </form>
+            </div>
+            <div class="divider"></div>
+            <!-- <h4 id="profile-management__form--caption" class="header-4">Don't have an account?</h4>
+            <a id="profile-management__form--caption-link" class="backquote__small" href="#">Sign up, it's free</a> -->
+        </div>
+        <img class="profile-management__illustration" src="assets/img/undraw_enter_uhqk.svg" alt="Form illustration logo">
+    </div>
+</div>

@@ -1,9 +1,11 @@
 <li class="recipe__card">
-    <a routerLink="/viewRecipe">
+    <a [routerLink]="[recipePageItem.id]">
         <img [src]='recipePageItem.imagePath' class="recipe__image">
         <h6 class="caption">{{ recipePageItem.duration }}</h6>
         <h4 class="header-4">{{ recipePageItem.name }}</h4>
         <div class="divider-tiled__small"></div>
-        <h6 class="backquote__small">{{ recipePageItem.author }}</h6>
+        <h6 class="recipe__card--author paragraph">
+          Made by <span class="backquote__small">{{ recipePageItem.author }}</span>
+        </h6>
     </a>
 </li>

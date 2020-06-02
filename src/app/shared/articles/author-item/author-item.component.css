@@ -1,11 +1,7 @@
 /* author template */
 .author--template {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .author--background {
@@ -25,4 +21,5 @@
   line-height: 2rem;
   height: 100%;
 }
+
 /*# sourceMappingURL=author-item.component.css.map */

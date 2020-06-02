@@ -1,0 +1,19 @@
+@import "../../../../styles/abstracts/variables";
+
+.ranking__container {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  grid-column-gap: 0.125rem;
+}
+
+.cube__container {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.cube {
+  height: 100%;
+  width: 100%;
+  background: map-get($colors, yellow);
+}

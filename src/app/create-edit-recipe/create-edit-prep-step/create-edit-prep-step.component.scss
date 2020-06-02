@@ -1,0 +1,53 @@
+.side-info {
+  position: absolute;
+  left: -3rem;
+  transform: translate(-100%, -50%);
+}
+
+.prep-step--container {
+
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 50% 1px auto;
+  grid-column-gap: 1.3rem;
+
+  margin: {
+    top: 0.75rem;
+    bottom: 1.5rem;
+  }
+
+  > .divider--vertical {
+    height: calc(100% - 2.125rem);
+    margin-top: 2.125rem;
+  }
+
+  #step-ingredients--container {
+    display: grid;
+    grid-row-gap: 0.75rem;
+    align-content: start;
+
+    > .ingredients--container {
+      display: grid;
+      grid-row-gap: 1.5rem;
+    }
+  }
+
+  #delete-step__button {
+    @extend .side-info;
+    top: 50%;
+  }
+
+  #step-order--container {
+    @extend .side-info;
+    top: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.step--divider {
+  opacity: 40%;
+  width: 80%;
+}

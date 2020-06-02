@@ -1,3 +1,5 @@
+@import "../../styles/abstracts/mixins";
+
 /* header */
 
 .main-header {
@@ -32,18 +34,50 @@
 
 .main-nav__item {
   padding: 0 1.55rem;
+
+  > a {
+    cursor: pointer;
+  }
 }
 
 .main-nav__item--login {
   border-left: 1px solid #CDBEA7;
 }
 
-.main-nav__item > a {
-  cursor: pointer;
-}
-
 .main-nav__divider {
   z-index: 100;
   position: fixed;
   margin-top: 4rem;
+}
+
+/* profile avatar */
+
+.main-nav__item--profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  > a {
+    margin-left: 1rem;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.profile--template {
+  display: inline-flex;
+  align-items: center;
+}
+
+.profile--background {
+
+  position: relative;
+  height: 2rem;
+  width: 2rem;
+
+  h3 {
+    @include center-profile-text;
+  }
 }

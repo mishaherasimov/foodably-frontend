@@ -1,0 +1,7 @@
+.ingredient--container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 1.25rem;
+}
+
+/*# sourceMappingURL=create-edit-step-ingredient.component.css.map */

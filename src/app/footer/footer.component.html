@@ -5,10 +5,10 @@
             <div class="main-footer__content--subsection">
                 <h3 class="header-3">Contact us</h3>
                 <form class="contact-us-form">
-                    <input type="text" placeholder="Name" name="name">
-                    <input type="email" placeholder="Email" name="email">
-                    <textarea name="message" placeholder="Message" rows="5"></textarea>
-                    <input class="button button-title red-back" type="submit" value="Submit">
+                    <input [(ngModel)]="mailName" type="text" placeholder="Name" name="name">
+                    <input [(ngModel)]="mailEmail" type="email" placeholder="Email" name="email">
+                    <textarea [(ngModel)]="mailBody" name="message" placeholder="Message" rows="5"></textarea>
+                    <input class="button button-title red-back" type="submit" value="Submit" style="cursor: pointer;" (click)="onSubmit()">
                 </form>
             </div>
         </section>

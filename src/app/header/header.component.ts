@@ -1,4 +1,8 @@
+import { Router } from '@angular/router';
+import { AuthService } from './../shared/auth.service';
 import { Component, OnInit } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-header',
@@ -12,7 +16,10 @@ export class HeaderComponent implements OnInit {
   isLoginOpened = false;
   isSignUpOpened = false;
 
-  constructor() { }
+  constructor(
+    public authService:AuthService,
+    private router:Router
+  ) { }
 
   ngOnInit() {
   }
@@ -22,11 +29,19 @@ export class HeaderComponent implements OnInit {
   }
 
   onSignUp() {
+   
     this.isSignUpOpened = !this.isSignUpOpened;
+  }
+  logout() {
+    this.authService.doLogout();
+    this.router.navigate(['']);
   }
 
   onUserSubmit() {
     this.isLoginOpened = false;
     this.isUserLoggedIn = true;
+  }
+  onProfile(){
+    this.router.navigate(['profile']);
   }
 }

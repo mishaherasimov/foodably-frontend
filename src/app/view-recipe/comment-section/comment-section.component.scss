@@ -1,3 +1,4 @@
+// @author: SNEHA JAYAVARDHINI
 .user-comment {
     width: 70vw;
     margin: 0 auto;
@@ -9,9 +10,17 @@
     width: 60px;
 }
 
-.comments-section p {
+.comments-section h2 {
     line-height: 15px;
-    margin: 0 auto 5px;
+    font-family: "Playfair Display", sans-serif;
+    font-size: 30px;
+}
+.comment-author-initial{
+  margin-left: 15px;
+}
+.comments-section p{
+  line-height: 2px;
+  margin-top: 15px;
 }
 
 .comments-section .comment-author {
@@ -27,18 +36,42 @@
 
 .comments-section .comment-content {
     padding-bottom: 0px;
-    line-height: 25px;
     letter-spacing: 1px;
     color: #888888;
+    overflow-wrap: break-word;
+    line-height: 20px;
+
+
+}
+.comment-edit-delete img{
+  height: 20px;
+  cursor: pointer;
+  width: 20px;
+  float: right;
+}
+.comment-edit-delete{
+  margin-right: 50px;
+}
+
+.comment-background{
+  color: #b52f2f;
+  width: 3rem;
+  background: burlywood;
+  position: absolute;
+  float: left;
+  height: 3rem;
+  border-radius:7px ;
+
 }
 
 .comments-section .comment-post-reply .comment-content,
 .comments-section .comment-post-reply .comment-author {
     color: #888888;
+
 }
 
 .comments-section textarea {
-    width: 100%;
+    width: 80%;
     height: 80px;
     border: 1px solid #ccccccad;
     border-radius: 4px;
@@ -55,12 +88,11 @@
     text-align: center;
     line-height: 25px;
 }
-
-.comment-like-unlike span i:hover {
-    color: #547ef8;
-    transition: 0.3s ease-in-out;
+.like img{
+  cursor: pointer;
+  width: 22px;
+  margin-right: 5px;
 }
-
 .comment-post,
 .comment-post-reply {
     display: flex;
@@ -68,7 +100,8 @@
 }
 
 .comment-details {
-    margin-left: 25px;
+    margin-left: 70px;
+    width: 70%;
 }
 
 .comment-post-reply {
@@ -79,8 +112,11 @@
 .comments-section {
     padding-top: 40px;
     border-top: 1px solid #cccccc8a;
+    margin-left: 12%;
 }
-
+.comment-add{
+  padding-left: 15px;
+}
 .comments-section .btn--blue {
     -webkit-box-shadow: 0 3px 32px rgba(85, 126, 248, .54);
     box-shadow: 0 3px 32px rgba(85, 126, 248, .54);
@@ -91,9 +127,11 @@
     height: 50px;
     line-height: 50px;
     color: #fff;
-    display: inline-block;
+    float: right;
+    margin-right: 200px;
     border: none;
     text-decoration: none;
     margin-top: 10px;
-    float: inherit;
+    cursor: pointer;
+
 }

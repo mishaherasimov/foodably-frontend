@@ -1,3 +1,4 @@
+//Author: Ujwal Vikas Chanda, uj225642@dal.ca
 .backdrop {
     position: fixed;
     top: 0;
@@ -23,6 +24,7 @@
     transform: translate(-50%, -50%);
 }
 
+/* main form logo */
 .adv-search__logo {
     position: absolute;
     top: 2.625rem;
@@ -30,6 +32,7 @@
     z-index: -10;
 }
 
+/* Advance search display */
 .adv-search__illustration {
     position: absolute;
     bottom: 2.625rem;
@@ -38,12 +41,14 @@
     z-index: -10;
 }
 
+/* category display */
 .adv-search__categories {
     position: absolute;
     top: 6rem;
     left: 3rem;
 }
 
+/* content */
 .adv-search__contents {
     list-style-type: none;
     position: absolute;
@@ -77,6 +82,7 @@
     font-family: 'Montserrat', sans-serif;
     padding: 1rem;
     list-style-type: none;
+    cursor: pointer;
 }
 
 .food-type:hover {
@@ -99,6 +105,7 @@
     bottom: 2.625rem;
     right: 2.375rem;
     z-index: -10;
+    cursor: pointer;
 }
 
 #button-filter {
@@ -106,4 +113,9 @@
     bottom: 2.625rem;
     left: 50%;
     z-index: -10;
+    cursor: pointer;
+}
+
+.header-3 {
+    cursor: pointer;
 }

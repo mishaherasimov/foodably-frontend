@@ -73,10 +73,6 @@
   width: 10rem;
 
   h3 {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
+    @include center-profile-text;
   }
 }

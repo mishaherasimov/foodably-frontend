@@ -1,0 +1,13 @@
+<div class="stepper__container">
+  <app-button-square (click)="onMinus()"
+                     color="#882426"
+                     size="1.5"
+                     icon="assets/img/minus.svg"></app-button-square>
+  <h4 class="header-4">{{ value }}</h4>
+  <app-button-square (click)="onPlus()"
+                     color="#882426"
+                     size="1.5"
+                     icon="assets/img/plus.svg"></app-button-square>
+  <p *ngIf="annotation" class="caption">{{ annotation }}</p>
+</div>
+

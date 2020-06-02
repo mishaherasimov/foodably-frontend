@@ -1,0 +1,138 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.text-field--container {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-field--regular {
+
+  @extend .text-field--container;
+
+  > input {
+    @include input-text;
+  }
+
+  > textarea {
+    @include input-text;
+    resize: none;
+  }
+}
+
+.stepper--regular {
+
+  @extend .text-field--container;
+
+  > .header-4 {
+    margin-bottom: 0.75rem;
+  }
+}
+
+// Inspired by https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox
+
+.checkbox--regular {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  height: 2.75rem;
+
+  align-items: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .check-mark {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2.75rem;
+    width: 2.75rem;
+    border: 0.5px solid map_get($colors, golden);
+
+    &:after {
+      @include center-profile-text;
+      content: '';
+      display: none;
+      width: 65%;
+      height: 65%;
+      background: url('/../../assets/img/marker.svg') no-repeat center center/cover;
+    }
+  }
+}
+
+.checkbox--annotation {
+  padding-left: 3.75rem;
+}
+
+.checkbox--regular input:checked ~ .check-mark:after {
+  display: block;
+}
+
+/* Dropdown styling */
+
+.dropdown--regular {
+
+  @extend .text-field--container;
+
+  > .header-4 {
+    margin-bottom: 0.75rem;
+  }
+}
+
+.dropdown__content {
+
+  padding: $text-field-padding;
+  border: 0.5px solid map_get($colors, golden);
+  cursor: pointer;
+  outline: none;
+
+  > input {
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0;
+  }
+
+  .dropdown {
+    /* Styles */
+    background: white;
+    margin: 0.125rem 0 0 0;
+    padding: 0;
+    border: 0.5px solid map_get($colors, golden);
+
+    /* Hover state */
+    .dropdown__option:hover  {
+      background: #e1ddd9;
+    }
+
+    .dropdown__option {
+      padding: $text-field-padding;
+      text-decoration: none;
+      list-style: none;
+      color: #646260;
+    }
+  }
+}
+
+.dropdown__caret {
+  &::after {
+    content: "▼";
+    color: map_get($colors, red);
+    text-align: center;
+  }
+}
+
+/* -- Dropdown finish -- */

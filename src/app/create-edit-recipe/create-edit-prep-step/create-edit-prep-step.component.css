@@ -1,0 +1,44 @@
+.side-info, .prep-step--container #step-order--container, .prep-step--container #delete-step__button {
+  position: absolute;
+  left: -3rem;
+  transform: translate(-100%, -50%);
+}
+
+.prep-step--container {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 50% 1px auto;
+  grid-column-gap: 1.3rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.prep-step--container > .divider--vertical {
+  height: calc(100% - 2.125rem);
+  margin-top: 2.125rem;
+}
+.prep-step--container #step-ingredients--container {
+  display: grid;
+  grid-row-gap: 0.75rem;
+  align-content: start;
+}
+.prep-step--container #step-ingredients--container > .ingredients--container {
+  display: grid;
+  grid-row-gap: 1.5rem;
+}
+.prep-step--container #delete-step__button {
+  top: 50%;
+}
+.prep-step--container #step-order--container {
+  top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.step--divider {
+  opacity: 40%;
+  width: 80%;
+}
+
+/*# sourceMappingURL=create-edit-prep-step.component.css.map */

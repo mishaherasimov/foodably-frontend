@@ -1,0 +1,51 @@
+@import "../../../styles/abstracts/variables";
+
+.user-recipe__image {
+  margin: 0;
+  width: 8.75rem;
+  object-fit: cover;
+  height: 100%;
+}
+
+.user-recipe__card {
+  background-color: white;
+  box-shadow: $card-shadow;
+  list-style: none;
+  min-height: 8.75rem;
+
+  a {
+    display: grid;
+    grid-auto-flow: column;
+    position: relative;
+    height: 100%;
+    justify-content: start;
+
+    /* configure card content spacing */
+
+    > .user-recipe__card--content {
+      padding: 1rem 0.75rem 1.125rem 1.25rem;
+      height: 100%;
+
+      > .paragraph {
+        margin: 0.5rem 0 0 0;
+      }
+    }
+
+    > .user-recipe__card--image {
+      height: 100%;
+      min-height: 8.75rem;
+    }
+
+    > .user-recipe__card--overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: adjust_color(map-get($colors, yellow), $alpha: -0.1);
+      display: grid;
+      grid-auto-flow: column;
+      grid-column-gap: 2rem;
+      justify-content: center;
+      align-content: center;
+    }
+  }
+}

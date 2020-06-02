@@ -4,3 +4,24 @@
     right: auto;
   }
 }
+
+@mixin center-profile-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+@mixin input-text {
+  margin-top: 0.75rem;
+  border: 0.5px solid #CDBEA7;
+  padding: 0.875rem 1rem 0.75rem 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+
+  &::placeholder {
+    color: #9E9E9E;
+  }
+}

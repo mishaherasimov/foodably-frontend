@@ -1,0 +1,5 @@
+<div class="ranking__container">
+    <div class="cube__container" *ngFor="let i of cubes; let isLast = last">
+      <div class="cube" [style.width.%]="!isLast ? 100 : i"></div>
+    </div>
+</div>

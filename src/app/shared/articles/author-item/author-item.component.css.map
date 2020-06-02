@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,qBAAqB;AAErB,AAAA,iBAAiB,CAAC;EAChB,OAAO,EAAE,WAAW;EACpB,WAAW,EAAE,MAAM;CACpB;;AAED,AAAA,mBAAmB,CAAC;EAClB,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;CACZ;;AAED,AAAA,iBAAiB,CAAC,EAAE,CAAC;EACnB,MAAM,EAAE,CAAC;EACT,WAAW,EAAE,IAAI;CAClB;;AAED,AAAA,mBAAmB,CAAC,EAAE,CAAC;EACrB,MAAM,EAAE,CAAC;EACT,UAAU,EAAE,MAAM;EAClB,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,IAAI;EACjB,MAAM,EAAE,IAAI;CACb",
-    "sources": [
-        "author-item.component.scss"
-    ],
-    "names": [],
-    "file": "author-item.component.css"
-}
+{"version":3,"sourceRoot":"","sources":["author-item.component.scss"],"names":[],"mappings":"AAAA;AAEA;EACE;EACA;;;AAGF;EACE;EACA;;;AAGF;EACE;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA","file":"author-item.component.css"}

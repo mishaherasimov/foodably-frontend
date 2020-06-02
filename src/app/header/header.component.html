@@ -1,40 +1,48 @@
 <header>
-  <app-login *ngIf="isLoginOpened" (close)="onLogin()" (login)="onUserSubmit()"></app-login>
-  <app-sign-up *ngIf="isSignUpOpened" (close)="onSignUp()"></app-sign-up>
-  <div class="main-header">
-    <div>
-      <a routerLink="/" class="main-header__brand">
-        <img src="assets/img/logo_nav.svg" alt="Foodably - probably the best cooking website on the earth">
-      </a>
+    <app-login *ngIf="isLoginOpened" (close)="onLogin()" (login)="onUserSubmit()"></app-login>
+
+    <app-sign-up *ngIf="isSignUpOpened" (close)="onSignUp()"></app-sign-up>
+    <div class="main-header">
+        <div>
+            <a routerLink="/" class="main-header__brand">
+                <img src="assets/img/logo_nav.svg" alt="Foodably - probably the best cooking website on the earth">
+            </a>
+        </div>
+        <nav class="main-nav header-4">
+            <ul class="main-nav__items">
+                <li class="main-nav__item">
+                    <a routerLink="/recipes">Recipes</a>
+                </li>
+                <li class="main-nav__item">
+                    <a routerLink="/blogs">Blogs</a>
+                </li>
+            </ul>
+            <ul class="main-nav__items">
+                <ng-container *ngIf="isUserLoggedIn; then profile; else profileManagement">
+                </ng-container>
+                <ng-template #profile>
+                    <li class="main-nav__item ">
+                        <a routerLink="/profile">Profile</a>
+                    </li>
+                </ng-template>
+                <ng-template #profileManagement>
+                    <li class="main-nav__item ">
+                        <a *ngIf="!authService.isLoggedIn" routerLinkActive="active" (click)="onSignUp()">Sign-up</a>
+                    </li>
+                    <li class="main-nav__item main-nav__item--login">
+                        <a *ngIf="!authService.isLoggedIn" routerLinkActive="active" (click)="onLogin()">Login</a>
+                    </li>
+                    <li class="main-nav__item ">
+                        <a *ngIf="authService.isLoggedIn" (click)="onProfile()">Profile</a>
+                    </li>
+                    <li class="main-nav__item main-nav__item--login">
+                        <a *ngIf="authService.isLoggedIn" (click)="logout()">Logout</a>
+                    </li>
+                </ng-template>
+            </ul>
+        </nav>
     </div>
-    <nav class="main-nav header-4">
-      <ul class="main-nav__items">
-        <li class="main-nav__item">
-          <a routerLink="/recipes">Recipes</a>
-        </li>
-        <li class="main-nav__item">
-          <a routerLink="/blogs">Blogs</a>
-        </li>
-      </ul>
-      <ul class="main-nav__items">
-        <ng-container
-          *ngIf="isUserLoggedIn; then profile; else profileManagement">
-        </ng-container>
-        <ng-template #profile>
-          <li class="main-nav__item ">
-            <a routerLink="/profile">Profile</a>
-          </li>
-        </ng-template>
-        <ng-template #profileManagement>
-          <li class="main-nav__item ">
-            <a (click)="onSignUp()">Sign-up</a>
-          </li>
-          <li class="main-nav__item main-nav__item--login">
-            <a (click)="onLogin()">Login</a>
-          </li>
-        </ng-template>
-      </ul>
-    </nav>
-  </div>
-  <div class="divider main-nav__divider"></div>
+
+    <div class="divider main-nav__divider"></div>
 </header>
+

@@ -1,0 +1,23 @@
+@import "../../../styles/abstracts/variables";
+
+.step__container {
+  background: map-get($colors, light-yellow);
+  box-shadow: $regular-shadows;
+  padding: 1rem 3rem 2rem 2rem;
+  max-width: 85%;
+
+  > .paragraph {
+    margin: 0;
+  }
+}
+
+.step__container-index {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 1.625rem;
+
+  h4 {
+    margin-left: 4rem;
+  }
+}

@@ -1,0 +1,16 @@
+.button__background {
+  cursor: pointer;
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 0.4rem;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+
+  > .button-title {
+    margin: 0;
+    line-height: normal;
+  }
+}
+
+

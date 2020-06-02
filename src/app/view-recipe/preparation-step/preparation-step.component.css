@@ -1,0 +1,21 @@
+.step__container {
+  background: #FEF2E3;
+  box-shadow: 10px 10px 35px -20px rgba(0, 0, 0, 0.5);
+  padding: 1rem 3rem 2rem 2rem;
+  max-width: 85%;
+}
+.step__container > .paragraph {
+  margin: 0;
+}
+
+.step__container-index {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 1.625rem;
+}
+.step__container-index h4 {
+  margin-left: 4rem;
+}
+
+/*# sourceMappingURL=preparation-step.component.css.map */

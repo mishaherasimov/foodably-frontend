@@ -1,0 +1,30 @@
+
+<form class="ingredient--container" [formGroup]="ingredientForm">
+  <div class="text-field--regular">
+    <label class="header-4" for="ingredient">Ingredient</label>
+    <input id="ingredient"
+           type="text"
+           formControlName="name"
+           placeholder="Ingredient name"
+           name="ingredient_name">
+  </div>
+  <div class="stepper--regular">
+    <label class="header-4" for="quantity">Quantity</label>
+    <app-stepper id="quantity"
+                 formControlName="value"></app-stepper>
+  </div>
+  <div class="dropdown--regular">
+    <label class="header-4" for="units">Units</label>
+    <ng-select id="units"
+               [options]="units"
+               [styleGuide]="styleGuide"
+               formControlName="units"></ng-select>
+  </div>
+  <app-button-square class="ingredient_remove--button"
+                     (click)="onDelete()"
+                     iconHeight="21"
+                     color="#F2BF58"
+                     size="2.75"
+                     icon="assets/img/trash_can.svg"></app-button-square>
+</form>
+<div *ngIf="!isLast" class="divider ingredient--divider"></div>

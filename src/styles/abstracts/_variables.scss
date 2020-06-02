@@ -1,7 +1,14 @@
 $colors: (dark: #212121,
+          gray: #646260,
           link-yellow: #C29544,
           red: #882426,
           yellow: #F2BF58,
           green: #486824,
-          purple: #4C3F54);
+          purple: #4C3F54,
+          light-yellow: #FEF2E3,
+          golden: #CDBEA7);
 
+$regular-shadows: 10px 10px 35px -20px rgba(0,0,0,0.5);
+$card-shadow: 4px 10px 25px -16px #4C4054;
+
+$text-field-padding: 0.875rem 1rem 0.75rem 1.5rem;

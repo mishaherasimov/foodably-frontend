@@ -1,62 +1,59 @@
+<!--//Author: Ujwal Vikas Chanda, uj225642@dal.ca-->
 <div class="backdrop">
     <div class="adv-search__form">
         <img class="adv-search__logo" src="assets/img/logo_small.svg" alt="Foodably logo">
         <div class="close-button" (click)="onClose()"></div>
         <img class="adv-search__illustration" src="assets/img/undraw_enter_uhqk.svg" alt="Form illustration logo">
-        <button id="button-filter" class="button button-title red-back" type="submit" value="Submit">OK</button>
-        <button id="clear-filter" class="button button-title red-back">Clear Filter</button>
 
-
+        <!--Category column-->
         <div class="adv-search__categories">
             <li class="food-type" (click)="onFilter()">Type of dish</li><br>
             <li class="food-type" (click)="onFilterA()">Diet</li><br>
-            <li class="food-type" (click)="onFilterB()">Preparation Time</li><br>
             <li class="food-type" (click)="onFilterC()">Ingridients</li><br>
             <li class="food-type" (click)="onFilterD()">Cusine</li><br>
         </div>
 
-        <div class="adv-search__contents" *ngIf="showup">
-            <form>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Breakfast</li>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Lunch</li>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Dinner</li>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Snacks</li>
-            </form>
-        </div>
-        <div class="adv-search__contents" *ngIf="showupA">
-            <form>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">VEG</li>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">NON-VEG</li>
-            </form>
-        </div>
+<!--Category Fields-->
+        <form>
+            <div class="adv-search__contents" *ngIf="showup">
 
-        <div class="adv-search__contents" *ngIf="showupB">
-            <form>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Under 10 min</li>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Under 20 min</li>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Under 30 min</li>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Under 40 min</li>
-            </form>
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(types[0])">Breakfast</li>
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(types[1])">Lunch</li>
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(types[2])">Dinner</li>
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(types[3])">Snacks</li>
 
-        </div>
+            </div>
+            <div class="adv-search__contents" *ngIf="showupA">
 
-        <div class="adv-search__contents" *ngIf="showupC">
-            <form>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Vegetables</li>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Chicken</li>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Beef</li>
-            </form>
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(diets[0])">VEG</li>
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(diets[1])">NON-VEG</li>
 
-        </div>
-        <div class="adv-search__contents" *ngIf="showupD">
-            <form>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Chinese</li>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Italian</li>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Indian</li>
-                <li class="food-type-sub"><input type="checkbox" class="header-3">Asian</li>
-            </form>
+            </div>
 
-        </div>
+
+            <div class="adv-search__contents" *ngIf="showupC">
+
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(ingrs[0])">Pork</li>
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(ingrs[1])">Chicken</li>
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(ingrs[2])">Beef</li>
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(ingrs[3])">Honey</li>
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(ingrs[4])">Lime</li>
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(ingrs[5])">Oats</li>
+
+            </div>
+            <div class="adv-search__contents" *ngIf="showupD">
+
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(cusines[0])">Chinese</li>
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(cusines[1])">Italian</li>
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(cusines[2])">Indian</li>
+                <li class="food-type-sub"><input type="checkbox" class="header-3" (click)="onSelect(cusines[3])">Continental</li>
+
+            </div>
+
+            <button id="button-filter" (click)="onSubmit()" class="button button-title red-back" type="submit" value="Submit">OK</button>
+            <button id="clear-filter" (click)="onClear()" class="button button-title red-back">Clear Filter</button>
+
+        </form>
 
     </div>
 </div>

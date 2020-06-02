@@ -1,22 +1,32 @@
 <section class="section-class">
     <div class="section-left-class shopping-list">
-        <h2> Shopping List</h2>
+        <h3 class="header-3">Shopping List</h3>
+
         <!-- <ul >
             <li *ngFor="let list of shoppinglist; let i=index">{{shoppinglist[i].name}}---{{shoppinglist[i].qty}}</li>
         </ul> -->
+
         <table class="table-class" style="width:100%">
             <tr>
               <th>Ingrediants</th>
               <th>Qunatity</th>
+              <th>Units</th>
             </tr>
-            <tr *ngFor="let list of shoppingList; let i=index">
-              <td>{{ list.name }}</td>
-              <td>{{ list.qty }}</td>
+            <tr *ngFor="let ingrediet of shoppingList; let i=index">
+              <td>{{ ingrediet.name }}</td>
+              <td>{{ ingrediet.value }}</td>
+              <td>{{ ingrediet.units }}</td>
             </tr>
           </table>
     </div>
-    <div class="section-right-class">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2838.8697798156304!2d-63.58040378495831!3d44.6405783960408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b5a22313967a661%3A0xd6a405faf6d878a3!2s1333%20South%20Park%20St%2C%20Halifax%2C%20NS%20B3J%202K9!5e0!3m2!1sen!2sca!4v1581999436678!5m2!1sen!2sca" width="100%" height="350" frameborder="0" style="border:1px solid #000;" allowfullscreen=""></iframe>
+     <div class="section-right-class">
+        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2838.8697798156304!2d-63.58040378495831!3d44.6405783960408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b5a22313967a661%3A0xd6a405faf6d878a3!2s1333%20South%20Park%20St%2C%20Halifax%2C%20NS%20B3J%202K9!5e0!3m2!1sen!2sca!4v1581999436678!5m2!1sen!2sca" width="100%" height="350" frameborder="0" style="border:1px solid #000;" allowfullscreen=""></iframe> -->
+         <iframe width="560" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyC6vmA4psalFEBizEQjiEeP1aNjDdizflc&q=grocery+stores+in+Halifax" allowfullscreen> </iframe>
     </div>
-
+    <agm-map [latitude]="44.6344" [longitude]="-63.5822">
+      <agm-marker [latitude]="44.6344" [longitude]="-63.5822"></agm-marker>
+    </agm-map>
 </section>
+
+
+

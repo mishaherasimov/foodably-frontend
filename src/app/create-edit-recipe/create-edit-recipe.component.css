@@ -1,0 +1,99 @@
+/* top section with video and label */
+.content-container {
+  width: 80%;
+  padding-top: 4rem;
+  padding-bottom: 4.125rem;
+  margin: 0 auto;
+}
+
+.form__section {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.form__section--title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#form__section--top {
+  margin-top: 2.25rem;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 2rem;
+  grid-row-gap: 1.5rem;
+  grid-auto-rows: minmax(5rem, auto);
+  grid-template-areas: "tit tit tit ctg" "vid vid img img" "des des des cis" "des des des type" "des des des ." "time time veg veg";
+}
+
+/* form area construction */
+#title--container {
+  grid-area: tit;
+}
+
+#category--container {
+  grid-area: ctg;
+}
+
+#video--container {
+  grid-area: vid;
+}
+
+#image--container {
+  grid-area: img;
+}
+
+#description--container {
+  grid-area: des;
+}
+
+#cuisine--container {
+  grid-area: cis;
+}
+
+#type--container {
+  grid-area: type;
+}
+
+#time--container {
+  grid-area: time;
+}
+
+#veg--container {
+  grid-area: veg;
+  align-self: center;
+}
+
+/* form area construction -- finish */
+.form__section--title {
+  margin-bottom: 2rem;
+}
+
+#form__section--ingredients {
+  margin: 2rem 0;
+}
+
+#form__section--instruction {
+  margin-top: 2rem;
+  margin-bottom: 3.125rem;
+}
+
+#form__section--submit {
+  margin-top: 2.25rem;
+  display: grid;
+  grid-column-gap: 1rem;
+  grid-auto-flow: column;
+  justify-content: end;
+}
+#form__section--submit button {
+  padding: 0;
+  border: none;
+}
+
+.recipe--divider {
+  width: 75%;
+}
+
+/*# sourceMappingURL=create-edit-recipe.component.css.map */

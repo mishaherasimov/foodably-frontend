@@ -1,56 +1,60 @@
 <div class="backdrop">
-  <div class="profile-management__form">
-    <img class="profile-management__logo" src="assets/img/logo_small.svg" alt="Foodably logo">
-    <div class="close-button" (click)="onClose()"></div>
-    <div class="profile-management__form--container">
-      <h2 class="header-2">Create an account</h2>
-      <div class="profile-management__form--content">
-        <button id="button-google" type="button">
+    <div class="profile-management__form">
+        <img class="profile-management__logo" src="assets/img/logo_small.svg" alt="Foodably logo">
+        <div class="close-button" (click)="onClose()"></div>
+        <div class="profile-management__form--container">
+            <h2 class="header-2">Create an account</h2>
+            <div class="profile-management__form--content">
+                <!-- <button id="button-google" type="button">
           <img id="button-google--logo" src="assets/img/google_logo.svg" alt="Google logo">
           <h4 id="button-google--text">Sign in with Google</h4>
-        </button>
-        <p class="paragraph">or use your email for registration</p>
-        <form class="profile-management__form--fields"
-              (ngSubmit)="onSubmit()"
-              #signUpForm="ngForm">
-          <input id="username"
-                 type="text"
-                 placeholder="Name"
-                 name="username"
-                 ngModel
-                 required>
-          <input id="email"
-                 type="email"
-                 placeholder="Email"
-                 name="email"
-                 ngModel
-                 required
-                 email>
-          <input id="password"
-                 type="password"
-                 placeholder="Password"
-                 name="password"
-                 required
-                 ngModel
-                 minlength="8">
-          <input id="confirmPassword"
-                 type="password"
-                 placeholder="Enter password again"
-                 name="confirmPassword"
-                 required
-                 ngModel
-                 minlength="8">
-          <input class="button button-title red-back"
-                 [disabled]="!signUpForm.valid"
-                 type="submit"
-                 value="Submit">
-        </form>
-      </div>
-      <div class="divider"></div>
-      <h4 id="profile-management__form--caption" class="header-4">Already have an account?</h4>
-      <a id="profile-management__form--caption-link" class="backquote__small" href="#">Login here</a>
+        </button> 
+                <p class="paragraph">or use your email for registration</p>-->
+                <form class="profile-management__form--fields" (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+
+                    <input formControlName="name" type="text" placeholder="Name" required>
+
+                    <input class="form-control" formControlName="email" type="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+
+                    <div *ngIf="(signupForm.get('email').invalid && onInit) || 
+                                (signupForm.get('email').invalid && (signupForm.get('email').dirty ||
+                                signupForm.get('email').touched))" class="alert alert-danger">
+                        <div *ngIf="signupForm.get('email').errors.required">
+                            Please provide Email address
+                        </div>
+                        <div *ngIf="signupForm.get('email').errors.pattern">
+                            Please provide correct Email address
+                        </div>
+                        <div *ngIf="signupForm.get('email').hasError('EmailInUse')">
+                            Email already in use
+                        </div>
+                    </div>
+
+
+                    <input type="password" name="password" id="password" placeholder="Password" class="form-control" formControlName="password">
+                    <div *ngIf="(signupForm.get('password').invalid && onInit) || 
+                            (signupForm.get('password').invalid && (signupForm.get('password').dirty ||
+                            signupForm.get('password').touched))" class="alert alert-danger">
+
+                        <div *ngIf="signupForm.get('password').errors.required">
+                            Password can't be empty
+                        </div>
+                        <div *ngIf="signupForm.get('password').errors.maxlength">
+                            Password can be maximum of 20 characters.
+                        </div>
+                        <div *ngIf="signupForm.get('password').errors.minlength">
+                            Password must be at least 6 characters long.
+                        </div>
+                    </div>
+
+                    <!--<input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Enter password again" required minlength="8" > -->
+                    <input class="button button-title red-back" type="submit" value="Submit">
+                </form>
+            </div>
+            <div class="divider"></div>
+            <h4 id="profile-management__form--caption" class="header-4">Already have an account?</h4>
+            <a id="profile-management__form--caption-link" class="backquote__small" [routerLink]="['/login']">Login here</a>
+        </div>
+        <img class="profile-management__illustration" src="assets/img/undraw_enter_uhqk.svg" alt="Form illustration logo">
     </div>
-    <img class="profile-management__illustration" src="assets/img/undraw_enter_uhqk.svg"
-         alt="Form illustration logo">
-  </div>
 </div>

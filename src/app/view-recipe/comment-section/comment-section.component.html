@@ -1,46 +1,38 @@
+<!-- @author: SNEHA JAYAVARDHINI -->
 <div class="user-comment">
     <div class="comments-section">
-        <div class="comment-post">
-            <div class="comment-img"><img src="https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png" /></div>
-            <div class="comment-details">
-                <p><span class="comment-author">Ravi</span><span class="comment-time">30 minutes ago</span></p>
-                <p class="comment-content">Maecenas eu maximus tellus, vel placerat massa. Nullam neque magna, hendrerit ac lacinia in, consequat nec ipsum. Vivamus tincidunt fringilla diam et sagittis. Suspendisse tincidunt hendrerit nisi, sit amet aliquet enim ornare at.</p>
+       <div>
+          <h2> Comments</h2>
+          <ul  *ngFor="let com of comments">
+            <div class="comment-post">
+              <div class="comment-background"><h3 class="comment-author-initial">{{com.user.name | slice:0:1}}</h3></div>
+              <div class="comment-details">
+                <p><span class="comment-author">{{com.user.name}}</span>
+                  <span class="comment-time">{{com.createdAt | date:'medium' : ' GMT-3'}}</span>
+                  <span class="comment-edit-delete"><img src="assets/img/Icons/delete.png" (click)="onDelete(com.id)"></span>
+<!--                  <span class="comment-edit-delete" ng-click="editing = true" ><img src="assets/img/Icons/edit.png" ></span>-->
+                </p>
+                <p class="comment-content">{{com.comment}}</p>
                 <div class="comment-like-unlike">
-                    <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></span>
-                    <span><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></span>
-                    <span><i class="fa fa-reply" aria-hidden="true"></i></span>
+                  <span class="like" ><img src="assets/img/like.svg" (click)="like(com)"></span>
+                  <span><label class="like-count">{{com.like}}</label></span>
                 </div>
+              </div>
             </div>
+          </ul>
         </div>
-        <div class="comment-post-reply">
-            <div class="comment-img"><img src="https://cdn.iconscout.com/icon/free/png-256/avatar-375-456327.png" /></div>
-            <div class="comment-details">
-                <p><span class="comment-author">LoremIpsum</span><span class="comment-time">10 minutes ago</span></p>
-                <p class="comment-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                <div class="comment-like-unlike">
-                    <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></span>
-                    <span><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></span>
-                    <span><i class="fa fa-reply" aria-hidden="true"></i></span>
-                </div>
-            </div>
-        </div>
-        <div class="comment-post">
-            <div class="comment-img"><img src="https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png" /></div>
-            <div class="comment-details">
-                <p><span class="comment-author">Rhuyix</span><span class="comment-time">5 minutes ago</span></p>
-                <p class="comment-content">Nullam neque magna, hendrerit ac lacinia in, consequat nec ipsum. Vivamus tincidunt fringilla diam et sagittis. Suspendisse tincidunt hendrerit nisi, sit amet aliquet enim ornare at.</p>
-                <div class="comment-like-unlike">
-                    <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></span>
-                    <span><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></span>
-                    <span><i class="fa fa-reply" aria-hidden="true"></i></span>
-                </div>
-            </div>
-        </div>
+        <form #commentForm="ngForm" (ngSubmit)="onComment(commentForm)">
         <div class="comment-add">
             <div class="field-comment">
-                <textarea rows="4" cols="50"></textarea>
-                <a class="btn btn--blue btn--medium pull-right" href="#">Post Your Comment</a>
+                <textarea rows="4" cols="50" id="comment-area"
+                name="comment" class="form-control" placeholder="Write your comment"
+                [(ngModel)]="commentDesc" minlength="2" maxlength="=200" required>
+                </textarea>
+                <button  class="btn--blue btn-medium" [disabled]="!commentForm.valid">
+                Post Your Comment
+                </button>
             </div>
         </div>
+        </form>
     </div>
 </div>

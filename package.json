@@ -28,7 +28,7 @@
     "@ng-bootstrap/ng-bootstrap": "^5.2.3",
     "bootstrap": "^4.4.1",
     "font-awesome": "^4.7.0",
-    "class-transformer": "^0.2.3",
+    "class-transformer": "^0.3.1",
     "http": "0.0.1-security",
     "jquery": "^3.4.1",
     "ng-custom-select": "^2.0.4",
